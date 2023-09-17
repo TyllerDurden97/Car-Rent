@@ -1,7 +1,6 @@
 import css from '../Favorites/Favourite.module.css';
-import Filter from '../../components/Filter/Filter';
+// import Filter from '../../components/Filter/Filter';
 import { React, useEffect, useState } from "react";
-// import generalFilter from '../../services/generalFilter';
 import { nanoid } from 'nanoid';
 
 
@@ -33,20 +32,7 @@ useEffect(() => {
 
    
 
-   // const price = 50;
-   // const test2 = '';
-   // const milFrom = 1;
-   // const milTo = Infinity;
    
-   // const filters = {
-   //    make: 'Volvo',
-   //    price: 500,
-   //    milFrom: 1,
-   //    milTo: 7000
-   // }   
-
-   // const filteredItems = generalFilter(allItems, {...filters} );
-
    return (
       <div className={css.wrapper}>
          {/* <div className={css.filter}>
