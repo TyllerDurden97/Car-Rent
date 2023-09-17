@@ -11,7 +11,6 @@ export const Layout = () => {
    <React.Fragment>
         <Container
            maxWidth="1440px"
-         //   maxHeight= '1926px'
            disableGutters={true}
           >
             <Box sx={{ width: '100%', height: '100%' }} >

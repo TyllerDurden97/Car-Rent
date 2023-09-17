@@ -1,13 +1,9 @@
-// import { Box} from '@mui/material';
-import css from './Home.module.css'
-// import 'animate.css';
-// import bgImage from '../../images/phonebookImg.jpg';
+import css from './Catalog.module.css';
 import fetchApi from '../../services/fetchData';
 import { React, useEffect, useState } from "react";
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
 import { nanoid } from 'nanoid'
 import { ButtonLoadMore } from '../../components/ButtonLoadMore/ButtonLoadMore';
-// import generalFilter from '../../services/generalFilter';
 import Filter from '../../components/Filter/Filter';
 
 export default function Home() {

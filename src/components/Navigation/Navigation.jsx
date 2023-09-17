@@ -1,9 +1,7 @@
 import { NavLink } from 'react-router-dom';
-import { useAuth } from 'hooks';
 import css from './Navigation.module.css';
 
 export const Navigation = () => {
-   const { userLoggedIn } = useAuth();
 
   return (
     <nav className={css.navWrap}>
@@ -11,11 +9,11 @@ export const Navigation = () => {
         Home
       </NavLink>
         <NavLink
-           className={css.link} to="/register">
-        Register
+           className={css.link} to="/catalog">
+        Catalog
       </NavLink>
-      <NavLink className={css.link} to="/login">
-        Log In
+      <NavLink className={css.link} to="/favorites">
+        Favourite
       </NavLink>
     </nav>
   );

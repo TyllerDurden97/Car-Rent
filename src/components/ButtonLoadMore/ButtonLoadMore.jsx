@@ -1,6 +1,6 @@
 import React from "react";
 // import PropTypes from 'prop-types';
-import css from '../pages/ButtonLoadMore.module.css';
+import css from '../ButtonLoadMore/ButtonLoadMore.module.css';
 
 export const ButtonLoadMore = ({ onClick }) => (
    <button         

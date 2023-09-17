@@ -1,5 +1,5 @@
 import css from '../Favorites/Favourite.module.css';
-import Filter from '../Home/Filter/Filter';
+import Filter from '../../components/Filter/Filter';
 import { React, useEffect, useState } from "react";
 // import generalFilter from '../../services/generalFilter';
 import { nanoid } from 'nanoid';
