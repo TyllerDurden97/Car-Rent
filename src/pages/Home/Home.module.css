@@ -1,18 +1,19 @@
 .wrapper {
-  width: 100vw;
+  width: 100%;
   /* max-width: 1440px; */
-  height: 1926px;
+  height: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 0 128px;
+  /* padding: 0 128px; */
 
   /* background-image: url('https://www.flaticon.com/free-icons/phonebook'); */
 }
 
 .imageGallery {
   display: grid;
-  max-width: 100vw;
+  /* max-width: 100vw; */
+  max-width: 1184px;
   /* calc(100vw - 48px); */
   grid-template-columns: repeat(4, 1fr);
   grid-gap: 29px;

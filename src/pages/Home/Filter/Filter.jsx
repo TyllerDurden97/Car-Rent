@@ -2,31 +2,55 @@ import { useState } from 'react';
 import { nanoid } from 'nanoid';
 import css from './Filter.module.css';
 import svg from '../../../images/symbol-defs.svg';
+import generalFilter from '../../../services/generalFilter';
 
-const Filter = ({allCarCards}) => {
+
+const Filter = ({allItems, favourItems, onFilter}) => {
 
     const [isOpenBrands, setIsOpenBrands] = useState(false);  
     const [isOpenPrice, setIsOpenPrice] = useState(false);  
     const [selectedCarBrand, setSelectedCarBrand] = useState('');
     const [selectedCarPrice, setSelectedCarPrice] = useState('');
-    const [mileageValueFrom, setMileageValueFrom] = useState('');
-    const [mileageValueTo, setMileageValueTo] = useState('');
+    const [mileageValueFrom, setMileageValueFrom] = useState(1);
+   const [mileageValueTo, setMileageValueTo] = useState(Infinity);
+   const [filters, setFilters] = useState({});
 
+   
+   
+   const handleFormSubmit = (event) => {
+      event.preventDefault();
+      // const formData = new FormData(); 
+   //   console.log(formData) 
+      setFilters({
+         make: selectedCarBrand,
+         price: selectedCarPrice,
+         milFrom: mileageValueFrom,
+         milTo: mileageValueTo,
+      }) 
+      //   localStorage.setItem('filter', JSON.stringify(filters));
+   };
 
-    const handleFormSubmit = (event) => {
-        event.preventDefault();
-        
-        const filter = {
-            make: selectedCarBrand,
-            rentalPrice: selectedCarPrice,
-            mileageFrom: mileageValueFrom,
-            mileageTo: mileageValueTo,
+   console.log('ФИЛЬТРА:', filters);
 
-        }
-        localStorage.setItem('filter', JSON.stringify(filter));
-    }
-    
-    const filterMakes = allCarCards.map(item => item.make)
+// const filters = {
+//       make: 'Subaru',
+//       price: 500,
+//       milFrom: 1,
+//       milTo: 7000
+//    }
+
+   const filteredItems = generalFilter(allItems, { ...filters });
+   console.log('POSLE ФИЛЬТРА:', filteredItems);
+   
+      // const filteredFavItems = generalFilter(favourItems, { ...filters });
+      // console.log('POSLE ФИЛЬТРА:', filteredFavItems);
+   const sendPropsToCatalog = (filteredItems) => {
+      onFilter(filteredItems)
+   };
+
+   sendPropsToCatalog(filteredItems);
+
+    const filterMakes = allItems.map(item => item.make)
         .filter((make, index, array) => array
         .indexOf(make) === index
     );
@@ -38,8 +62,7 @@ const Filter = ({allCarCards}) => {
     };
         return list;
     };
-    const priceArr = makePriceArr();
-    
+   const priceArr = makePriceArr();    
 
   const handleBrandСlick = (option) => {
       setIsOpenBrands(false);
@@ -60,10 +83,18 @@ const Filter = ({allCarCards}) => {
         const value = event.target.value;
         setMileageValueTo(value);
    }
+
+   const handleResetСlick = () => {
+      setFilters({});
+      setSelectedCarBrand('')
+      setSelectedCarPrice('');
+      setMileageValueFrom(1);
+      setMileageValueTo(Infinity);
+   };
     
       return (
       <div className={css.formWrap}>
-        <form onSubmit={handleFormSubmit} className={css.form}>
+            <form onSubmit={handleFormSubmit} className={css.form} >
             <div className={css.brandWrap}>
             <label htmlFor="brand" className={css.labelBrand}>Car brand</label>
             <input
@@ -158,7 +189,10 @@ const Filter = ({allCarCards}) => {
         </div>    
            </div>
         <button type="submit" className={css.buttonSearchFilter}>Search</button>
-        </form>
+            </form>
+            <button type="button" className={css.btnResetFilter}
+               onClick={handleResetСlick}
+            >Reset filters</button>
         </div>
           
   );

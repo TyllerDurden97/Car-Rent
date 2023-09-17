@@ -18,15 +18,15 @@ export const ApplBar = () => {
    return (
       <AppBar
          // position='static'
-         sx={{opacity: '0.9'}}
+         sx={{opacity: '0.9', flexDirection: 'row'}}
       >
          <Toolbar >
             <Box sx={{ flexGrow: 1 }} >
             <Navigation />
             </Box>
-            <Box>
-               {userLoggedIn ? <UserMenu /> : <AuthNav />}
-            </Box>
+            {/* <Box>
+                <AuthNav />
+            </Box> */}
          </Toolbar>         
      </AppBar>
   );

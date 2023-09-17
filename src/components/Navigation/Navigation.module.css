@@ -14,3 +14,7 @@
 .link:hover {
   color: #f2e8e9;
 }
+
+.navWrap {
+  display: flex;
+}

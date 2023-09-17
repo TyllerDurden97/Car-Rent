@@ -1,7 +1,7 @@
 import css from '../Favorites/Favourite.module.css';
 import Filter from '../Home/Filter/Filter';
 import { React, useEffect, useState } from "react";
-import generalFilter from '../../services/generalFilter';
+// import generalFilter from '../../services/generalFilter';
 import { nanoid } from 'nanoid';
 
 
@@ -50,8 +50,11 @@ useEffect(() => {
    return (
       <div className={css.wrapper}>
          {/* <div className={css.filter}>
-            <Filter favourItems={favourItems} />
+            <Filter
+               favourItems={favourItems}
+            />
          </div> */}
+         <h1 className={css.title}> My Favourite</h1>
          <ul className={css.imageGallery}>
             {favourItems.map(({ id, address, rentalCompany, year, type,
                model, img, make, rentalPrice, accessories, photoLink }) => {
@@ -86,15 +89,6 @@ useEffect(() => {
          </ul>
          {/* {itemsOnPage.length >= 8 && <ButtonLoadMore onClick={hadleBtnLoadMore} />} */}
      </div>
-   //   <Box
-   //      className={css.wrapper}
-   //    sx={{
-   //          backgroundImage: `url(${bgImage})`,
-   //          backgroundSize: 'cover',
-   //          backgroundPosition: 'center center',
-   //          backgroundRepeat: 'no-repeat',
-   //         }}>        
-   //  </Box>
   );
 }
 

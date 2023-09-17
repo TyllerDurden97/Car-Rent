@@ -11,7 +11,7 @@ import { Favorite } from "@mui/icons-material";
 // import { logOut } from '../redux/auth/thunks';
 // import { phonebook } from "redux/contacts/selectors";
 
-const HomePage = lazy(() => import('../pages/Home/Home'));
+const Home = lazy(() => import('../pages/Home/Home'));
 const Favourite = lazy(() => import('../pages/Favorites/Favourite'));
 const LoginPage = lazy(() => import('../pages/Login/Login'));
 const ContactsPage = lazy(() => import('../pages/Contacts/Contacts'));
@@ -32,7 +32,7 @@ export const App = () => {
   return (
     <Routes>
       <Route path="/" element={<Layout />}>
-        <Route index element={<HomePage />} />
+        <Route index element={<Home />} />
         <Route
           path="/register"
           element={<Favourite />} />        

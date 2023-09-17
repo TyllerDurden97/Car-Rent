@@ -6,15 +6,17 @@ export const Navigation = () => {
    const { userLoggedIn } = useAuth();
 
   return (
-    <nav>
+    <nav className={css.navWrap}>
       <NavLink className={css.link} to="/">
         Home
       </NavLink>
-      {userLoggedIn && (
-        <NavLink className={css.link} to="/contacts">
-          Contacts
-        </NavLink>
-      )}
+        <NavLink
+           className={css.link} to="/register">
+        Register
+      </NavLink>
+      <NavLink className={css.link} to="/login">
+        Log In
+      </NavLink>
     </nav>
   );
 };

@@ -16,6 +16,7 @@ export default function Home() {
    const [page, setPage] = useState(1);
    const [allItems, setAllItems] = useState([]);
    const [favourItems, setFavourItems] = useState([]);
+   const [filteredItems, setFilteredItems]= useState([]);
 
 // let itemsPerPage = 8;
    
@@ -73,6 +74,12 @@ export default function Home() {
       localStorage.setItem('items', JSON.stringify(favourItems));
          console.log('после удаления из избр:', favourItems);
    };
+
+   // const reciveFilteredData = (filteredItems) => {
+   //    setFilteredItems(filteredItems)
+   // }
+      console.log('ФИЛЬТР НА ХОМЕ:', filteredItems);
+
 //    useEffect(() => {
 //       localStorage.setItem('items', JSON.stringify(favourItems));
 // }, [favourItems]);
@@ -83,17 +90,17 @@ export default function Home() {
    // const milFrom = 1;
    // const milTo = Infinity;
    
-   const filters = {
-      make: 'Volvo',
-      price: 500,
-      milFrom: 1,
-      milTo: 7000
-   }
+   // const filters = {
+   //    make: 'Volvo',
+   //    price: 500,
+   //    milFrom: 1,
+   //    milTo: 7000
+   // }
    
 
    
 
-   const filteredItems = generalFilter(allItems, {...filters} );
+   // const filteredItems = generalFilter(allItems, {...filters} );
 
 
 
@@ -133,13 +140,14 @@ export default function Home() {
 
 
    return (
-      <div className={css.wrapper}>
-          <Filter
+      <div className={css.wrapper}>         
+                  <div className={css.filter}>
+            <Filter
                allItems={allItems}
+               // onFilter={reciveFilteredData}
             />
-         {/* <div className={css.filter}>
-           
-         </div> */}
+         </div>
+
          <ul className={css.imageGallery}>
             {allItems.map(({ id, address, rentalCompany, year, type,
                model, img, make, rentalPrice, accessories, photoLink }) => {

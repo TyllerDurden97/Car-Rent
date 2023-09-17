@@ -11,3 +11,18 @@ export default function Register() {
     </div>
   );
 }
+
+// const location = useLocation();
+
+//    const switcherFiltersHandle = () => {
+//       if (location.pathname.includes('/home/')) {
+//          const filteredItems = generalFilter(allItems, { ...filters });
+//          console.log('POSLE ФИЛЬТРА:', filteredItems);
+//          return filteredItems;
+//       } else {
+//          const filteredFavItems = generalFilter(favourItems, { ...filters });
+//          console.log('POSLE ФИЛЬТРА:', filteredFavItems);
+//          return filteredFavItems;
+//       };
+//    };
+//            console.log('ВЫБОР ФИЛЬТРА:', switcherFiltersHandle());

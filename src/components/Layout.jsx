@@ -10,10 +10,11 @@ export const Layout = () => {
   return (
    <React.Fragment>
         <Container
-           maxWidth="100vw"
+           maxWidth="1440px"
+         //   maxHeight= '1926px'
            disableGutters={true}
           >
-            <Box sx={{ height: '100vh' }} >
+            <Box sx={{ width: '100%', height: '100%' }} >
                <ApplBar />
                <Suspense fallback={null}>
                   <Outlet />

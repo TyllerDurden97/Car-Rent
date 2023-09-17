@@ -1,11 +1,11 @@
 
-export const generalFilter = (allItems, {
+export const generalFilter = (Items, {
    make = '',
    price = 1000,
    milFrom = 1,
    milTo = Infinity
 }) => {
-   const filteredItems = allItems
+   const filteredItems = Items
       .filter(item => Number(item.rentalPrice.substring(1)) <= `${price}`)
       .filter(item => item.make === (`${make}` || item.make))
       .filter(item => item.mileage >= `${milFrom}` && item.mileage <= `${milTo}`);
