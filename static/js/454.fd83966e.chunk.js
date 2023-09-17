@@ -1,0 +1,2 @@
+"use strict";(self.webpackChunkcar_rent=self.webpackChunkcar_rent||[]).push([[454],{8949:function(e,r,n){n.r(r),n.d(r,{default:function(){return o}});var c=n(6747),a="Home_wrapper__iZIsl",t=n.p+"static/media/rent1.9099bc1e5f015efbcd3a.jpg",u=n(184);function o(){return(0,u.jsx)(c.Z,{className:a,sx:{backgroundImage:"url(".concat(t,")"),backgroundSize:"cover",backgroundPosition:"center center",backgroundRepeat:"no-repeat"}})}}}]);
+//# sourceMappingURL=454.fd83966e.chunk.js.map
