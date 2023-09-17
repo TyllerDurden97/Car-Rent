@@ -5,6 +5,7 @@ import { Notify } from 'notiflix/build/notiflix-notify-aio';
 import { nanoid } from 'nanoid'
 import { ButtonLoadMore } from '../../components/ButtonLoadMore/ButtonLoadMore';
 import Filter from '../../components/Filter/Filter';
+import svg from '../../images/symbol-defs.svg';
 
 export default function Home() {
    const [itemsToShow, setItemsToShow] = useState([]);
@@ -68,37 +69,16 @@ export default function Home() {
    const reciveFilteredData = (filteredItems) => {
       setFilteredItems(filteredItems)
    }
-      console.log('ФИЛЬТР НА ХОМЕ:', filteredItems);
-
+   console.log('ФИЛЬТР НА ХОМЕ:', filteredItems);
    
-
-   
-
-   // const filteredItems = generalFilter(allItems, {...filters} );
-
-
-
-// const filteredToPrice = allItems.filter(item => item.rentalPrice.substring(1) <=50);//фильтр по цене ОТ
-//    // const filteredByPrice = [...itemsToShow].sort((a, b) => a.rentalPrice.substring(1) - b.rentalPrice.substring(1));//сортировка от деш
-//    const filteredByMake = allItems.filter(item => item.make === (`${test2}` || item.make));//фильтр по марке
-// const filteredByMiles = allItems.filter(item => item.mileage >=`${milFrom}`&& item.mileage<=`${milTo}`);//фильтр по пробегу
-   // const generalFilter = allItems
-      // .filter(item => item.make === (`${test2}` || item.make))
-      // .filter(item => item.rentalPrice.substring(1) <= `${price}`)
-      // .filter(item => item.mileage >= `${milFrom}` && item.mileage <= `${milTo}`);
-   // console.log('фильтр по цене:', filteredToPrice);
-   // console.log('фильтр по марке:', filteredByMake);
-         // console.log('фильтр:', generalFilter);
-
    return (
       <div className={css.wrapper}>         
-                  <div className={css.filter}>
+         <div className={css.filter}>
             <Filter
                allItems={allItems}
                onFilter={reciveFilteredData}
             />
          </div>
-
          <ul className={css.imageGallery}>
             {(filteredItems.length ? filteredItems : itemsToShow).map(({ id, address, rentalCompany, year, type,
                model, img, make, rentalPrice, accessories, photoLink }) => {
@@ -112,25 +92,41 @@ export default function Home() {
                      className={css.imageGalleryItemImg}
                      src={img ? `${img}` : `${photoLink}`} alt={model} />
                   {/* <span>{address.split(' ').splice(-1)}</span> */}
-                  <span>{make}</span>
-                  <span>{model}</span>
-                  <span>{year}</span>
-                  <span>{rentalPrice}</span>
-                  <span>{shortAddress.splice(0)}</span>
-                  <span>{shortAddress.splice(1)}</span>
-                  <span>{rentalCompany}</span>
-                  <span>{type}</span>
-                  <span>{id}</span>
-                  <span>{accessories[0]}</span>
-                  {favourItems.find(item => item.id === id) ? (<button
+                  <h3 className={css.cardTitle}>
+                  <div className={css.cardTitleWrap}>  
+                     <span className={css.cardTitleSpan}>{make}</span>
+                     <span className={css.cardTitleSpanBlue}>{model},</span>
+                     <span className={css.cardTitleSpan}>{year}</span>
+                  </div>
+                     <span className={css.cardTitleSpanPrice}>{rentalPrice}</span>
+                  </h3>
+                     <div className={css.carInfoWrap}>
+                     <span className={css.carInfo}>{shortAddress[0]}  </span><span className={css.delimeter}></span>
+                     <span className={css.carInfo}>{shortAddress[1]}  </span><span className={css.delimeter}></span>
+                     <span className={css.carInfo}>{rentalCompany}</span><span className={css.delimeter}></span>
+                  </div>
+                  <div className={css.carInfoBottomWrap}>
+                     <span className={css.carInfo}>{type}</span><span className={css.delimeter}></span>
+                     <span className={css.carInfo}>{id}</span><span className={css.delimeter}></span>
+                     <span className={css.carInfo}>{accessories[0]}</span><span className={css.delimeter}></span>
+                  </div>
+         
+                  {favourItems && (favourItems.find(item => item.id === id) ? (<button
                      type='button'
                      onClick={() => handleBtnFavRemoveClick(id)}
-                  className={css.btnFav}
-                  > OFF</button>) : <button
+                     className={css.btnFav}>
+                     <svg width="18" height="18">
+                        <use href={`${svg}#icon-heart`}></use>
+                     </svg>
+                     </button>)
+                     : (<button
                      type='button'
                      onClick={() => handleBtnFavAddClick(id)}
-                  className={css.btnFav} 
-                  > ADD</button>}
+                     className={css.btnFav} > 
+                     <svg width="18" height="18">
+                        <use href={`${svg}#icon-heart-1`}></use>
+                     </svg>
+                     </button>))}
                </li> 
             })
             }  
