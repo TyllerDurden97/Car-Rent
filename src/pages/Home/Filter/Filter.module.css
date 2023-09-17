@@ -1,0 +1,143 @@
+.form {
+    display: flex;
+    flex-direction: row;
+    gap: 18px;
+    justify-content: center;
+    align-items: flex-end;
+}
+
+.brandWrap {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    
+}
+
+.inputBrand {
+    width: 224px;
+    height: 40px;
+    border-radius: 14px;
+    background: #F7F7FB;
+    border: none;
+    outline: none;
+    padding-left: 20px;
+}
+
+.buttonOpenBrand {
+    width: 25px;
+    height: 25px;
+    position: absolute;
+    top: 35px;
+    left: 200px;
+    background: transparent;
+    border: none;
+}
+
+.labelBrand {
+    color: #8A8A89;
+    font-family: Manrope;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 1.11;
+    margin-bottom: 8px;
+}
+
+.svgOpen {
+    stroke-width: 2;
+    stroke: #121417;
+    fill: none;
+}
+
+.priceWrap {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+.labelPrice {
+    color: #8A8A89;
+    font-family: Manrope;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 1.11;
+    margin-bottom: 8px;
+}
+
+.inputPrice {
+    width: 224px;
+    height: 40px;
+    border-radius: 14px;
+    background: #F7F7FB;
+    border: none;
+    outline: none;
+    padding-left: 20px;
+}
+
+.buttonOpenPrice {
+    width: 25px;
+    height: 25px;
+    position: absolute;
+    top: 35px;
+    left: 200px;
+    background: transparent;
+    border: none;
+}
+
+.mileageWrap {
+    display: flex;
+    flex-direction: column;
+}
+
+.inputWrap {
+    display: flex;
+    flex-direction: row;
+}
+
+.mileageLabel {
+    color: #8A8A89;
+    font-family: Manrope;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 1.11;
+    margin-bottom: 8px;
+}
+
+.mileageInputFrom {
+    width: 160px;
+    height: 40px;
+    background: #F7F7FB;
+    border: none;
+    outline: none;
+    padding-left: 20px;
+    border-radius: 14px 0px 0px 14px;
+    border-right: 1px solid rgba(138, 138, 137, 0.20);
+    background: #F7F7FB;
+    
+}
+
+.mileageInputTo {
+    width: 160px;
+    height: 40px;
+    background: #F7F7FB;
+    border: none;
+    outline: none;
+    padding-left: 20px;
+    border-radius: 0px 14px 14px 0px;
+    background: #F7F7FB;
+}
+
+.buttonSearchFilter {
+    width: 136px;
+    height: 40px;
+    background-color: #3f51b5;
+    text-align: center;
+    color: #fff;
+    border: 0;
+    text-decoration: none;
+    cursor: pointer;
+    font-size: 14px;
+    line-height: 1.43;
+    font-weight: 600;
+    border-radius: 14px;
+    font-family: Manrope;
+}
