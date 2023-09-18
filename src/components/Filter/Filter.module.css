@@ -229,6 +229,9 @@
   font-weight: 500;
   line-height: 1.25;
 }
+.brandItem:hover {
+  color: rgba(18, 20, 23);
+}
 
 .priceItem {
   margin-bottom: 8px;

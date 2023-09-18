@@ -20,14 +20,15 @@ useEffect(() => {
 }, []);
 //    useEffect(() => {
 //       localStorage.setItem('items', JSON.stringify(favourItems));
-// }, [favourItems]);
-   console.log('на избранных:', favourItems);
+   // }, [favourItems]);
+   
+   // console.log('на избранных:', favourItems);
 
 
    const handleBtnFavRemoveClick = (id) => {
       setFavourItems(favourItems.filter(item => item.id !== id));
       localStorage.setItem('items', JSON.stringify(favourItems));
-      console.log('после удаления из избр:', favourItems);
+      // console.log('после удаления из избр:', favourItems);
    };
 
    

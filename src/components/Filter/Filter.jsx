@@ -16,8 +16,7 @@ const Filter = ({allItems, favourItems, onFilter}) => {
    const [filters, setFilters] = useState({});
 
    
-   const filteredItems = generalFilter(allItems, { ...filters });
-   console.log('POSLE ФИЛЬТРА:', filteredItems);
+   
 
    const handleFormSubmit = (event) => {
       event.preventDefault();
@@ -27,7 +26,9 @@ const Filter = ({allItems, favourItems, onFilter}) => {
          milFrom: mileageValueFrom,
          milTo: mileageValueTo,
       });
+      const filteredItems = generalFilter(allItems, { ...filters });
       onFilter(filteredItems);
+   console.log('POSLE ФИЛЬТРА:', filteredItems);
 
       //   localStorage.setItem('filter', JSON.stringify(filters));
    };

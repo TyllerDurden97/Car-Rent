@@ -2,20 +2,22 @@ import css from './ModalCard.module.css';
 
 const ModalCar = ({ data }) => {
 
-    const { id, address, rentalCompany, year, type,
+    const { id, address, rentalCompany, year, type,photoLink,
         model, img, make, rentalPrice, accessories, fuelConsumption, engineSize,
         description, functionalities, rentalConditions, mileage, 
     } = data;
 
     const conditions = rentalConditions.split('\n');
     const age = conditions[0].match(/\d+/);
-    const location = address.split(',');
+   const location = address.split(',');
+   // const uiMileage = mileage.split(" ").splice(1, 0, ',').join('');
 
 
     return (
         <div className={css.modalWrap} key={id}>
             <div className={css.imageWrapper}>
-                <img src={img} alt={make} className={css.imgCar} />
+             <img
+                src={img ? `${img}` : `${photoLink}`} alt={model} className={css.imgCar} />
                 </div>
             <p className={css.nameCar}> {make} <span className={css.modelCar}>{model}</span>, <span>{year}</span></p>
             <div className={css.infoWrap}>
@@ -59,8 +61,7 @@ const ModalCar = ({ data }) => {
             </div>
             <div className={css.btnRentWrap}>
             <a href="tel:+380730000000" className={css.buttonRent}>Rental car</a>
-            </div>
-            
+            </div>            
         </div>
     )
 }

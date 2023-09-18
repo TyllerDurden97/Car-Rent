@@ -16,7 +16,6 @@ export default function Home() {
    const [allItems, setAllItems] = useState([]);
    const [showModal, setShowModal] = useState(false);
    const [cardModal, setCardModal] = useState('');
-
    const [favourItems, setFavourItems] = useState([]);
    const [filteredItems, setFilteredItems]= useState([]);
 
@@ -33,26 +32,22 @@ export default function Home() {
        
        setFavourItems(JSON.parse(localStorage.getItem('items')));
     }, []);
-         console.log('избр на хоме:', favourItems);
-
-         // console.log(allItems)
-
+         // console.log('избр на хоме:', favourItems);
 
     useEffect(() => { 
          fetchApi(page, 8)
             .then(advert => {
             setItemsOnPage(advert.data);
-               setItemsToShow(prev => [...prev, ...advert.data]);
-
-      })
-         .catch(error => {
+            setItemsToShow(prev => [...prev, ...advert.data]);
+         })
+            .catch(error => {
             console.log(error)
             Notify.info("404 page not found".toUpperCase());
          });
-    }, [page, filteredItems]);
-   // const start = itemsPerPage * page;
-   // const end = start + itemsPerPage;
-   // const paginatedData = itemsToShow.slice(start, end);
+    }, [page]);
+   
+         console.log('первый рендер', itemsToShow);
+
    const hadleBtnLoadMore = () => {
       setPage(prev => (prev + 1));
    };
@@ -61,26 +56,24 @@ export default function Home() {
       const item = allItems.find(item => item.id === id);
       setFavourItems(prev => ([...prev, item]));
       localStorage.setItem('items', JSON.stringify(favourItems));
-      console.log(item);
-      console.log('добав в избр:', favourItems);
+      // console.log(item);
+      // console.log('добав в избр:', favourItems);
    };
 
    const handleBtnFavRemoveClick = (id) => {
       setFavourItems(favourItems.filter(item => item.id !== id));
       localStorage.setItem('items', JSON.stringify(favourItems));
-      console.log('после удаления из избр:', favourItems);
+      // console.log('после удаления из избр:', favourItems);
    };
 
-const modalOpen = (id) => {
-          setShowModal(true);
-          const item = allItems.find(item => item.id === id);
-          setCardModal(item);
-
+   const modalOpen = (id) => {
+      setShowModal(true);
+      const item = allItems.find(item => item.id === id);
+      setCardModal(item);
     };
-    console.log(cardModal);
 
   const modalClose = () => {
-    setShowModal(false);
+      setShowModal(false);
   };
 
    const reciveFilteredData = (filteredItems) => {
@@ -97,7 +90,9 @@ const modalOpen = (id) => {
             />
          </div>
          <ul className={css.imageGallery}>
-            {(filteredItems.length ? filteredItems : itemsToShow).map(({ id, address, rentalCompany, year, type,
+            {
+               (filteredItems.length ? filteredItems : itemsToShow)
+               .map(({ id, address, rentalCompany, year, type,
                model, img, make, rentalPrice, accessories, photoLink }) => {
                const shortAddress = address.replace(/[,]/g, '').split(' ').splice(-2)
                const Itemid = nanoid();
@@ -108,7 +103,6 @@ const modalOpen = (id) => {
                    <img
                      className={css.imageGalleryItemImg}
                      src={img ? `${img}` : `${photoLink}`} alt={model} />
-                  {/* <span>{address.split(' ').splice(-1)}</span> */}
                   <h3 className={css.cardTitle}>
                   <div className={css.cardTitleWrap}>  
                      <span className={css.cardTitleSpan}>{make}</span>
@@ -153,18 +147,9 @@ const modalOpen = (id) => {
          {(itemsOnPage.length >= 8 && !filteredItems.length) && <ButtonLoadMore onClick={hadleBtnLoadMore} />}
       {showModal && (
                 <Modal onClose={modalClose}>
-                           <ModalCard data={cardModal}/>
+                  <ModalCard data={cardModal}/>
                 </Modal>
             )}  
       </div>
-   //   <Box
-   //      className={css.wrapper}
-   //    sx={{
-   //          backgroundImage: `url(${bgImage})`,
-   //          backgroundSize: 'cover',
-   //          backgroundPosition: 'center center',
-   //          backgroundRepeat: 'no-repeat',
-   //         }}>        
-   //  </Box>
   );
 }
