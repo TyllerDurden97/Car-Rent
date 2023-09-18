@@ -124,7 +124,7 @@ export default function Home() {
                      <button type="button" className={css.cardBtnLearnMore} onClick={() => modalOpen(id)}>Learn more</button>
 
          
-                  {favourItems && (favourItems.find(item => item.id === id) ? (<button
+                  {(favourItems.find(item => item.id === id) ? (<button
                      type='button'
                      onClick={() => handleBtnFavRemoveClick(id)}
                      className={css.btnFav}>
