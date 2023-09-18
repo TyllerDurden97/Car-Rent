@@ -124,22 +124,21 @@ export default function Home() {
                      <button type="button" className={css.cardBtnLearnMore} onClick={() => modalOpen(id)}>Learn more</button>
 
          
-                  {(favourItems.find(item => item.id === id) ? (<button
+                  {(favourItems && (favourItems.find(item => item.id === id))) ? (<button
                      type='button'
                      onClick={() => handleBtnFavRemoveClick(id)}
                      className={css.btnFav}>
                      <svg width="18" height="18">
                         <use href={`${svg}#icon-heart`}></use>
                      </svg>
-                     </button>)
-                     : (<button
+                     </button>) : (<button
                      type='button'
                      onClick={() => handleBtnFavAddClick(id)}
                      className={css.btnFav} > 
                      <svg width="18" height="18">
                         <use href={`${svg}#icon-heart-1`}></use>
                      </svg>
-                     </button>))}
+                     </button>)}
                </li> 
             })
             }  
