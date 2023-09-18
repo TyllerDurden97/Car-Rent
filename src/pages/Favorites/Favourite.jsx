@@ -25,10 +25,10 @@ useEffect(() => {
 
 
    const handleBtnFavRemoveClick = (id) => {
-     setFavourItems(favourItems.filter(item => item.id !== id));
+      setFavourItems(favourItems.filter(item => item.id !== id));
       localStorage.setItem('items', JSON.stringify(favourItems));
-         console.log('после удаления из избр:', favourItems);
-   }
+      console.log('после удаления из избр:', favourItems);
+   };
 
    
 
@@ -42,7 +42,7 @@ useEffect(() => {
          </div> */}
          <h1 className={css.title}> My Favourite</h1>
          <ul className={css.imageGallery}>
-            {favourItems.map(({ id, address, rentalCompany, year, type,
+            {favourItems && (favourItems.map(({ id, address, rentalCompany, year, type,
                model, img, make, rentalPrice, accessories, photoLink }) => {
                const shortAddress = address.replace(/[,]/g, '').split(' ').splice(-2)
                const Itemid = nanoid();
@@ -71,7 +71,7 @@ useEffect(() => {
                   > button</button>
                   </li> 
             })
-            }  
+            )}  
          </ul>
          {/* {itemsOnPage.length >= 8 && <ButtonLoadMore onClick={hadleBtnLoadMore} />} */}
      </div>

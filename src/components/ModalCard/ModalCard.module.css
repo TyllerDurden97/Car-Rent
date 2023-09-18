@@ -1,0 +1,175 @@
+.modalWrap {
+  width: 541px;
+  min-height: 700px;
+  padding: 45px 35px 15px 35px;
+  border-radius: 24px;
+  background: #ffff;
+}
+
+.imgCar {
+  width: 420px;
+  height: 280px;
+  border-radius: 20px;
+}
+
+.imageWrapper {
+  display: flex;
+  justify-content: center;
+}
+
+.infoWrap {
+  display: flex;
+  flex-direction: column;
+  width: auto;
+  height: auto;
+}
+
+.infoTopWrap {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  margin-bottom: 4px;
+}
+
+.infoBottomWrap {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  margin-bottom: 14px;
+}
+
+.infoCar {
+  color: rgba(18, 20, 23, 0.5);
+  font-family: Manrope;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 18px;
+}
+
+.border {
+  border-right: 2px solid #c3c2c2;
+  margin-left: 10px;
+}
+
+.nameCar {
+  color: #121417;
+  font-family: Manrope;
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 1.33;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.modelCar {
+  color: #3470ff;
+  font-family: Manrope;
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 1.33;
+}
+
+.carDescription {
+  color: #121417;
+  font-family: Manrope;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.43;
+  margin-bottom: 24px;
+}
+
+.carDetails {
+  color: #121417;
+  font-family: Manrope;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.43;
+  margin-bottom: 8px;
+}
+
+.infoConditions {
+  margin-top: 24px;
+  margin-bottom: 15px;
+  color: #121417;
+  font-family: Manrope;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.43;
+}
+
+.conditionsTopWrap {
+  display: flex;
+  flex-direction: row;
+  gap: 8px;
+}
+
+.conditionsTextIn {
+  color: #363535;
+  font-family: Montserrat;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 1.5;
+  letter-spacing: -0.24px;
+  border-radius: 35px;
+  background: #f9f9f9;
+  padding: 7px 14px;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.condSapn {
+  color: #3470ff;
+  font-family: Montserrat;
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 1.5;
+  letter-spacing: -0.24px;
+}
+
+.conditionsText {
+  color: #363535;
+  font-family: Manrope;
+  font-size: 12px;
+  line-height: 1.5;
+  border-radius: 35px;
+  background: #f9f9f9;
+  padding: 7px 14px;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.conditionsBottomWrap {
+  display: flex;
+  flex-direction: row;
+  gap: 8px;
+  margin-bottom: 14px;
+}
+
+.buttonRent {
+  width: 168px;
+  height: 30px;
+  padding: 12px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 12px;
+  background-color: #3470ff;
+  border: none;
+  cursor: pointer;
+  color: #fff;
+  font-family: Manrope;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1.43;
+}
+.buttonRent:hover {
+  background-color: #0b44cd;
+}
+
+.btnRentWrap {
+  display: flex;
+  justify-content: center;
+}

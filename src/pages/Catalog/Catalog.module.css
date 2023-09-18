@@ -49,7 +49,7 @@
 
 .imageGalleryItem:hover {
   transform: scale(1.03);
-  cursor: zoom-in;
+  cursor: default;
 }
 
 .filter {
@@ -73,17 +73,20 @@
 .cardTitleSpan {
   color: #121417;
   font-family: Manrope;
-  font-size: 18px;
+  font-size: 16px;
   font-weight: 700;
-  line-height: 1.5;
+  /* line-height: 1.5; */
   text-align: center;
+  letter-spacing: 0.9;
 }
 .cardTitleSpanBlue {
   color: rgb(39, 14, 233);
   font-family: Manrope;
-  font-size: 18px;
+  font-size: 16px;
   font-weight: 700;
-  line-height: 1.5;
+  /* line-height: 1.5; */
+  letter-spacing: 0.9;
+
   margin: 0 5px;
 }
 .cardTitleSpanPrice {
@@ -92,9 +95,11 @@
 
   color: #121417;
   font-family: Manrope;
-  font-size: 18px;
+  font-size: 16px;
   font-weight: 700;
-  line-height: 1.5;
+  /* line-height: 1.5; */
+  letter-spacing: 0.9;
+
   text-align: center;
   margin-right: 10px;
 }
@@ -118,11 +123,33 @@
   color: rgba(18, 20, 23, 0.8);
   font-family: Manrope;
   font-size: 14px;
-  line-height: 1.5;
+  letter-spacing: 0.9;
+
+  /* line-height: 1.5; */
 }
 .carInfoBottomWrap {
   display: flex;
   flex-direction: row;
   margin-bottom: 28px;
   overflow: hidden;
+}
+
+.cardBtnLearnMore {
+  width: 274px;
+  height: 44px;
+  background-color: #3470ff;
+  text-align: center;
+  color: #fff;
+  border: 0;
+  text-decoration: none;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 14px;
+  line-height: 1.43;
+  font-weight: 600;
+  border-radius: 12px;
+}
+
+.cardBtnLearnMore:hover {
+  background-color: #0b44cd;
 }

@@ -5,6 +5,8 @@ import { Notify } from 'notiflix/build/notiflix-notify-aio';
 import { nanoid } from 'nanoid'
 import { ButtonLoadMore } from '../../components/ButtonLoadMore/ButtonLoadMore';
 import Filter from '../../components/Filter/Filter';
+import Modal from "components/Modal/Modal.jsx";
+import ModalCard from "../../components/ModalCard/ModalCard";
 import svg from '../../images/symbol-defs.svg';
 
 export default function Home() {
@@ -12,6 +14,9 @@ export default function Home() {
    const [itemsOnPage, setItemsOnPage] = useState([]);
    const [page, setPage] = useState(1);
    const [allItems, setAllItems] = useState([]);
+   const [showModal, setShowModal] = useState(false);
+   const [cardModal, setCardModal] = useState('');
+
    const [favourItems, setFavourItems] = useState([]);
    const [filteredItems, setFilteredItems]= useState([]);
 
@@ -66,6 +71,18 @@ export default function Home() {
       console.log('после удаления из избр:', favourItems);
    };
 
+const modalOpen = (id) => {
+          setShowModal(true);
+          const item = allItems.find(item => item.id === id);
+          setCardModal(item);
+
+    };
+    console.log(cardModal);
+
+  const modalClose = () => {
+    setShowModal(false);
+  };
+
    const reciveFilteredData = (filteredItems) => {
       setFilteredItems(filteredItems)
    }
@@ -110,6 +127,8 @@ export default function Home() {
                      <span className={css.carInfo}>{id}</span><span className={css.delimeter}></span>
                      <span className={css.carInfo}>{accessories[0]}</span><span className={css.delimeter}></span>
                   </div>
+                     <button type="button" className={css.cardBtnLearnMore} onClick={() => modalOpen(id)}>Learn more</button>
+
          
                   {favourItems && (favourItems.find(item => item.id === id) ? (<button
                      type='button'
@@ -132,7 +151,12 @@ export default function Home() {
             }  
          </ul>
          {(itemsOnPage.length >= 8 && !filteredItems.length) && <ButtonLoadMore onClick={hadleBtnLoadMore} />}
-     </div>
+      {showModal && (
+                <Modal onClose={modalClose}>
+                           <ModalCard data={cardModal}/>
+                </Modal>
+            )}  
+      </div>
    //   <Box
    //      className={css.wrapper}
    //    sx={{
