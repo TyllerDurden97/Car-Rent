@@ -29,8 +29,11 @@ export default function Home() {
             console.log(error)
             Notify.info("404 page not found".toUpperCase());
          });
-       
-       setFavourItems(JSON.parse(localStorage.getItem('items')));
+       const storeItem = JSON.parse(localStorage.getItem('items'));
+       storeItem ? setFavourItems(JSON.parse(localStorage.getItem('items')))
+          : setFavourItems([]);
+                console.log('из стора:', storeItem);
+
     }, []);
          // console.log('избр на хоме:', favourItems);
 
