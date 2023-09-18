@@ -241,3 +241,6 @@
   font-weight: 500;
   line-height: 1.25;
 }
+.priceItem :hover {
+  color: rgba(18, 20, 23);
+}
